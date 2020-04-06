@@ -1,8 +1,8 @@
 user->browser:
 
 note left of browser
-    user writes a note
-    and presses "Submit"
+    user creates new note
+    and clicks on "Save"
 end note
 
 browser->server: HTTP POST http://fullstack-exampleapp.herokuapp.com/notes
@@ -15,8 +15,8 @@ end note
 server->browser: URL redirect to https://fullstack-exampleapp.herokuapp.com/notes
 
 note right of browser
-    browser reloads Notes page
-    to include new_note
+    server writes note to database
+    and browser reloads Notes page
 end note
 
 browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
