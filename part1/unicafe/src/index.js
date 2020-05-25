@@ -2,10 +2,23 @@ import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
 /* exercise 1.8 */
-const Statistics = (props) => {
+/* const Statistics = (props) => {
   console.log(props)
   return (
     <p>{props.text} {props.counter}</p>
+  )
+} */
+
+/* exercise 1.9 */
+const Statistics = ({good, neutral, bad}) => {
+  console.log(props)
+  if ((good === 0) && (neutral === 0) && (bad === 0)) {
+    return (
+      <p>No feedback given</p>
+    )
+  }
+  return (
+    <p></p>
   )
 }
 
