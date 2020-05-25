@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom'
 
 /* exercise 1.8 */
 const Statistics = (props) => {
+  console.log(props)
   return (
-    <p>{props.text}{props.counter}</p>
+    <p>{props.text} {props.counter}</p>
   )
 }
 
