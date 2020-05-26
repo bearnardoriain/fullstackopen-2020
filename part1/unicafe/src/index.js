@@ -2,23 +2,28 @@ import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
 /* exercise 1.8 */
-/* const Statistics = (props) => {
+const Statistic = (props) => {
   console.log(props)
   return (
     <p>{props.text} {props.counter}</p>
   )
-} */
+}
 
 /* exercise 1.9 */
 const Statistics = ({good, neutral, bad}) => {
-  console.log(props)
   if ((good === 0) && (neutral === 0) && (bad === 0)) {
     return (
       <p>No feedback given</p>
     )
   }
   return (
-    <p></p>
+    <div>
+      <Statistic text = "good" counter = {good}/>
+      <Statistic text = "neutral" counter = {neutral}/>
+      <Statistic text = "bad" counter = {bad}/>
+      <Statistic text = "average" counter = {(good + (neutral * 0) + (bad * -1))/(good + neutral + bad)}/>
+      <Statistic text = "positive" counter = {`${(good / (good + neutral + bad)) * 100}%`}/>
+    </div>
   )
 }
 
@@ -46,7 +51,6 @@ const App = () => {
           bad
         </button>
       </div>
-      {/* exercise 1.7 */}
       <h1>Statistics</h1>
       <div>
         { /* exercise 1.7 */
@@ -57,12 +61,14 @@ const App = () => {
         <p>average {average}</p>
         <p>positive {positive + '%'}</p> */}
         {/* exercise 1.8 */}
-        <Statistics text = 'good' counter = {good}/>
-        <Statistics text = 'neutral' counter = {neutral}/>
-        <Statistics text = 'bad' counter = {bad}/>
-        <Statistics text = 'sum' counter = {total}/>
-        <Statistics text = 'average' counter = {average}/>
-        <Statistics text = 'positive' counter = {`${positive}%`}/>
+        {/* <Statistic text = 'good' counter = {good}/>
+        <Statistic text = 'neutral' counter = {neutral}/>
+        <Statistic text = 'bad' counter = {bad}/>
+        <Statistic text = 'sum' counter = {total}/>
+        <Statistic text = 'average' counter = {average}/>
+        <Statistic text = 'positive' counter = {`${positive}%`}/> */}
+        {/* exercise 1.9 */}
+        <Statistics good = {good} neutral = {neutral} bad = {bad} average = {average} positive = {positive}/>
       </div>
     </div>
   )
