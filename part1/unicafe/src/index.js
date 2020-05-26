@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
-/* exercise 1.8 */
+/* exercises 1.8 and 1.10 */
 const Statistic = (props) => {
   console.log(props)
   return (
@@ -26,6 +26,12 @@ const Statistics = ({good, neutral, bad}) => {
     </div>
   )
 }
+
+/* exercise 1.10 */
+/* const Button = (props) => {
+  <button onClick = {props.onClick}>
+    {props.counter }
+} */
 
 const App = () => {
   // save clicks of each button to own state
@@ -73,7 +79,6 @@ const App = () => {
     </div>
   )
 }
-
 
 ReactDOM.render(<App />, 
   document.getElementById('root')
