@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
-/* exercises 1.8 and 1.10 */
+/* exercises 1.8 and 1.10b */
 const Statistic = (props) => {
   console.log(props)
   return (
@@ -27,11 +27,12 @@ const Statistics = ({good, neutral, bad}) => {
   )
 }
 
-/* exercise 1.10 */
-/* const Button = (props) => {
-  <button onClick = {props.onClick}>
-    {props.counter }
-} */
+/* exercise 1.10a */
+const Button = (props) => (
+  <button onClick = {props.handleClick}>
+    {props.text}
+  </button>
+)
 
 const App = () => {
   // save clicks of each button to own state
@@ -42,12 +43,23 @@ const App = () => {
   const totalScore = good + (neutral * 0) + (bad * -1)
   const average = totalScore / total
   const positive = (good / total) * 100
+  /* exercise 1.10a */
+  const incrementGood = good => {
+    setGood(good + 1)
+  }
+  const incrementNeutral = neutral => {
+    setNeutral(neutral + 1)
+  }
+  const incrementBad = bad => {
+    setBad(bad + 1)
+  }
 
   return (
     <div>
       <h1>Give feedback</h1>
       <div>
-        <button onClick={() => setGood(good + 1)}>
+        {/* exercises 1.6 to 1.9 */}
+        {/* <button onClick={() => setGood(good + 1)}>
           good
         </button>
         <button onClick={() => setNeutral(neutral + 1)}>
@@ -55,7 +67,10 @@ const App = () => {
         </button>
         <button onClick={() => setBad(bad + 1)}>
           bad
-        </button>
+        </button> */}
+        <Button handleClick={() => incrementGood(good)} text = "good"/>
+        <Button handleClick={() => incrementNeutral(neutral)} text = "neutral"/>
+        <Button handleClick={() => incrementBad(bad)} text = "bad"/>
       </div>
       <h1>Statistics</h1>
       <div>
