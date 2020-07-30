@@ -6,6 +6,7 @@ const Course = ({ course }) => {
         <div>
             <Header course = {course} />
             <Content course = {course} />
+            <Total course = {course} />
         </div>
     )
 }
@@ -28,10 +29,14 @@ const Content = ({ course }) => {
 }
 
 const Total = ({ course }) => {
-    const sum = course.parts[0].exercises + course.parts[1].exercises + course.parts[2].exercises
+    /* exercise 2.2 */
+    const sum = course.parts.map(course => course.exercises)
+    /* initialise */
+    /* const sum = course.parts[0].exercises + course.parts[1].exercises + course.parts[2].exercises */
     return (
         <p>
             Number of exercises {sum}
+            console.log(sum)
         </p>
     )
 }
