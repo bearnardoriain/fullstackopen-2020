@@ -15,7 +15,7 @@ import Total from './Total'
 } */
 
 /* exercise 2.4 */
-const Course = ({course}) => {
+const Course = ({ course }) => {
     return (
         <div>
             <Header course = {course.name} />

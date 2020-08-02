@@ -11,7 +11,7 @@ import React from 'react'
 }; */
 
 /* exercises 2.4 */
-const Total = ({parts}) => {
+const Total = ({ parts }) => {
     const sum = parts.reduce((accumulator, current) => accumulator + current.exercises, 0);
     return (
         <p>
