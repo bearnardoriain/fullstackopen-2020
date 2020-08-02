@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
-import Course from './components/Course';
+import Course from './components/Course'
 
 const App = () => {
     /* exercises 2.1 to 2.3 */
@@ -34,7 +34,7 @@ const App = () => {
     /* exercise 2.4 */
     const courses = [
         {
-            name: 'Half Stack application development',
+            name: 'Half stack application development',
             id: 1,
             parts: [
                 {
@@ -77,10 +77,17 @@ const App = () => {
         }
     ]
 
+    let kuursit = courses.map(course => <Course course = {course} />)
+
     return (
         <div>
             {/* exercises 2.1, 2.2 and 2.3 */}
-            <Course course = {course} />
+            {/* <Course course = {course} /> */}
+            {/* exercise 2.4 */}
+            <h1>
+                Web development curriculum
+            </h1>
+            {kuursit}
         </div>
     )
 }
