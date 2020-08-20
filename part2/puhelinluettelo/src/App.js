@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Person from './components/Person'
 
 const App = () => {
   const [ persons, setPersons ] = useState([
@@ -10,13 +11,13 @@ const App = () => {
   const addNewName = (event) => {
     // prevent default action of submitting HTML forms
     event.preventDefault()
-    // example: newName is 'Arto Hellas'
+    // example: first newName is 'Arto Hellas'
     const newPerson = {
       name: newName
     }
     // create new copy of persons in which to store new name
     setPersons(persons.concat(newPerson))
-    // reset newName
+    // reset newName to add new contacts
     setNewName('')
     console.log('new contact created')
   }
@@ -25,15 +26,6 @@ const App = () => {
   const handleNameChange = (event) => {
     console.log(event.target.value)
     setNewName(event.target.value)
-  }
-
-  // exercise 2.6
-  const Person = ({ person }) => {
-    return (
-    <li>
-      {person.name}
-    </li>
-    )
   }
 
   return (
