@@ -3,7 +3,7 @@ import Person from './components/Person'
 
 const App = () => {
   const [ persons, setPersons ] = useState([
-    { name: 'Arto Hellas' }
+    { name: `Arto Hellas` }
   ])
   const [ newName, setNewName ] = useState('')
   
@@ -11,15 +11,20 @@ const App = () => {
   const addNewName = (event) => {
     // prevent default action of submitting HTML forms
     event.preventDefault()
-    // example: first newName is 'Arto Hellas'
-    const newPerson = {
-      name: newName
+    // exercise 2.7
+    if (persons.map(person => person.name).includes(newName)) {
+      window.alert(`${newName} has already been added to the phonebook.`)
+    } else {
+      // example: first newName is 'Arto Hellas'
+      const newPerson = {
+        name: newName
+      }
+      // create new copy of persons in which to store new name
+      setPersons(persons.concat(newPerson))
+      // reset newName to add new contacts
+      setNewName('')
+      console.log('new contact created')
     }
-    // create new copy of persons in which to store new name
-    setPersons(persons.concat(newPerson))
-    // reset newName to add new contacts
-    setNewName('')
-    console.log('new contact created')
   }
 
   // exercise 2.6
