@@ -52,9 +52,21 @@ const App = () => {
     setNewNumber(event.target.value)
   }
 
+  // exercise 2.9
+  const handleFilterInput = (event) => {
+    console.log(event.target.value)
+    setNewName(event.target.value)
+  }
+
   return (
     <div>
       <h2>Phonebook</h2>
+        <form>
+          <div>
+            Search: <input value = {''} onChange = {handleFilterInput}/>
+          </div>
+        </form>
+      <h2>Add contact</h2>
         <form onSubmit = {addNewName}>
           <div>
             Name: <input value = {newName} onChange = {handleNewName}/>
