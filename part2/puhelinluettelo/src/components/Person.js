@@ -4,7 +4,10 @@ import React from 'react'
 const Person = ({ person }) => {
 	return (
 		<li>
-			{person.name}
+			{/* exercises 2.6 and 2.7 */}
+			{/* {person.name} */}
+			{/* exercise 2.8 */}
+			{person.name} {person.number}
 		</li>
 	)
 }
