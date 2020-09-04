@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 // exercise 2.8
-import Person from './components/Person'
+// import Person from './components/Person'
 // exercise 2.10
 import Filter from './components/Filter'
 import PersonForm from './components/PersonForm'
+import Phonebook from './components/Phonebook'
 
 const App = () => {
   // exercises 2.6 and 2.7
@@ -74,7 +75,8 @@ const App = () => {
 
   return (
     <div>
-      <h2>Phonebook</h2>
+      <h1>Phonebook</h1>
+      <h2>Search</h2>
         {/* exercises 2.6 to 2.9* */}
         {/* <form>
           <div>
@@ -97,13 +99,16 @@ const App = () => {
           </div>
         </form> */}
         <PersonForm persons = {persons} setPersons = {setPersons} addNewName = {addNewName} name = {newName} handleNewName = {handleNewName}number = {newNumber} handleNewNumber = {handleNewNumber}/>
-      <h2>Numbers</h2>
-      <ul>
-        {/* exercises 2.6 to 2.8 – show all results */}
-        {/* {persons.map(person => <Person person = {person} key = {person.name} number = {person.number}/>)} */}
-        {/* exercise 2.9* – show all results by default, else show filtered results */}
-        {results.map(person => <Person person = {person} key = {person.name} number = {person.number}/>)}
-      </ul>
+      <h2>List</h2>
+        {/* exercises 2.6 to 2.9* */}
+        {/* <ul> */}
+          {/* exercises 2.6 to 2.8 – show all results */}
+          {/* {persons.map(person => <Person person = {person} key = {person.name} number = {person.number}/>)} */}
+          {/* exercise 2.9* – show all results by default, else show filtered results */}
+          {/* {results.map(person => <Person person = {person} key = {person.name} number = {person.number}/>)} */}
+        {/* </ul> */}
+        {/* exercise 2.10* */}
+        <Phonebook persons = {results} filter = {filter}/>
     </div>
   )
 }
