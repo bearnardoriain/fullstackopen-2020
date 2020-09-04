@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Person from './components/Person'
+import Filter from './components/Filter'
 
 const App = () => {
   // exercises 2.6 and 2.7
@@ -9,11 +10,11 @@ const App = () => {
   // exercise 2.8
   const [ persons, setPersons ] = useState([
     { name: `Arto Hellas`, number: '040-1234567'},
-    // exercise 2.9
+    // exercise 2.9*
     { name: `Ada Lovelace`, number: `39-44-5323523`},
     { name: `Dan Abramov`, number: `12-43-234345`},
     { name: `Mary Poppendieck`, number: `39-23-6423122` },
-    // exercise 2.9++
+    // exercise 2.9*++
     { name: `Martti Tienari`, number: `+358-457-555-1868`},
     { name: `Arto Järvinen`, number: `+358-500-555-8863`},
     { name: `Lea Kutvonen`, number: `+358-505-556-2280`},
@@ -21,7 +22,7 @@ const App = () => {
   const [ newName, setNewName ] = useState('')
   // exercise 2.8
   const [ newNumber, setNewNumber ] = useState('')
-  // exercise 2.9
+  // exercise 2.9*
   const [ filter, setFilter ] = useState('')
   
   // exercise 2.6
@@ -60,22 +61,25 @@ const App = () => {
     setNewNumber(event.target.value)
   }
 
-  // exercise 2.9 – filter handler
+  // exercise 2.9* – filter handler
   const handleFilter = (event) => {
     console.log(event.target.value)
     setFilter(event.target.value)
   }
-  // exercise 2.9 – results definition: check filter input against names already in phonebook
+  // exercise 2.9* – results definition: check filter input against names already in phonebook
   const results = !filter ? persons : persons.filter(person => person.name.toLowerCase().includes(filter.toLowerCase()))
 
   return (
     <div>
       <h2>Phonebook</h2>
-        <form>
+        {/* exercises 2.6 to 2.9* */}
+        {/* <form>
           <div>
             Search: <input value = {filter} onChange = {handleFilter}/>
           </div>
-        </form>
+        </form> */}
+        {/* exercise 2.10 */}
+        <Filter filter = {filter} handleFilter = {handleFilter}/>
       <h2>Add contact</h2>
         <form onSubmit = {addNewName}>
           <div>
@@ -92,7 +96,7 @@ const App = () => {
       <ul>
         {/* exercises 2.6 to 2.8 – show all results */}
         {/* {persons.map(person => <Person person = {person} key = {person.name} number = {person.number}/>)} */}
-        {/* exercise 2.9 – show all results by default, else show filtered results */}
+        {/* exercise 2.9* – show all results by default, else show filtered results */}
         {results.map(person => <Person person = {person} key = {person.name} number = {person.number}/>)}
       </ul>
     </div>
