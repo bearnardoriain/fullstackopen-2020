@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
+// exercise 2.8
 import Person from './components/Person'
+// exercise 2.10
 import Filter from './components/Filter'
+import PersonForm from './components/PersonForm'
 
 const App = () => {
   // exercises 2.6 and 2.7
@@ -81,7 +84,8 @@ const App = () => {
         {/* exercise 2.10 */}
         <Filter filter = {filter} handleFilter = {handleFilter}/>
       <h2>Add contact</h2>
-        <form onSubmit = {addNewName}>
+        {/* exercises 2.6 to 2.9 */}
+        {/* <form onSubmit = {addNewName}>
           <div>
             Name: <input value = {newName} onChange = {handleNewName}/>
           </div>
@@ -91,7 +95,8 @@ const App = () => {
           <div>
             <button type="submit">Save</button>
           </div>
-        </form>
+        </form> */}
+        <PersonForm persons = {persons} setPersons = {setPersons} addNewName = {addNewName} name = {newName} handleNewName = {handleNewName}number = {newNumber} handleNewNumber = {handleNewNumber}/>
       <h2>Numbers</h2>
       <ul>
         {/* exercises 2.6 to 2.8 – show all results */}
