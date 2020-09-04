@@ -60,11 +60,12 @@ const App = () => {
     setNewNumber(event.target.value)
   }
 
-  // exercise 2.9
+  // exercise 2.9 – filter handler
   const handleFilter = (event) => {
     console.log(event.target.value)
     setFilter(event.target.value)
   }
+  // exercise 2.9 – results definition: check filter input against names already in phonebook
   const results = !filter ? persons : persons.filter(person => person.name.toLowerCase().includes(filter.toLowerCase()))
 
   return (
@@ -89,6 +90,9 @@ const App = () => {
         </form>
       <h2>Numbers</h2>
       <ul>
+        {/* exercises 2.6 to 2.8 – show all results */}
+        {/* {persons.map(person => <Person person = {person} key = {person.name} number = {person.number}/>)} */}
+        {/* exercise 2.9 – show all results by default, else show filtered results */}
         {results.map(person => <Person person = {person} key = {person.name} number = {person.number}/>)}
       </ul>
     </div>
