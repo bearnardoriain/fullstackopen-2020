@@ -13,15 +13,15 @@ const App = () => {
   // ])
   // exercise 2.8
   const [ persons, setPersons ] = useState([
-    { name: `Arto Hellas`, number: '040-1234567'},
+    { id: 1, name: `Arto Hellas`, number: '040-1234567'},
     // exercise 2.9*
-    { name: `Ada Lovelace`, number: `39-44-5323523`},
-    { name: `Dan Abramov`, number: `12-43-234345`},
-    { name: `Mary Poppendieck`, number: `39-23-6423122` },
+    { id: 2, name: `Ada Lovelace`, number: `39-44-5323523`},
+    { id: 3, name: `Dan Abramov`, number: `12-43-234345`},
+    { id: 4, name: `Mary Poppendieck`, number: `39-23-6423122` },
     // exercise 2.9*++
-    { name: `Martti Tienari`, number: `+358-457-555-1868`},
-    { name: `Arto Järvinen`, number: `+358-500-555-8863`},
-    { name: `Lea Kutvonen`, number: `+358-505-556-2280`},
+    { id: 5, name: `Martti Tienari`, number: `+358-457-555-1868`},
+    { id: 6, name: `Arto Järvinen`, number: `+358-500-555-8863`},
+    { id: 7, name: `Lea Kutvonen`, number: `+358-505-556-2280`},
   ])
   const [ newName, setNewName ] = useState('')
   // exercise 2.8

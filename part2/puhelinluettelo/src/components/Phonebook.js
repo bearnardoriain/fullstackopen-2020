@@ -8,7 +8,8 @@ const Phonebook = ({persons, filter}) => {
     return (
         <ul>
             {/* exercise 2.9* – show all results by default, else show filtered results */}
-            {results.map(person => <Person person = {person} key = {person.name} number = {person.number}/>)}
+            {/* {results.map(person => <Person person = {person} key = {person.name} number = {person.number}/>)} */}
+            {results.map(person => <Person person = {person} key = {person.id} name = {person.name} number = {person.number}/>)}
         </ul>
     )
 }
