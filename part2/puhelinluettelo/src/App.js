@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
-// exercise 2.8
-// import Person from './components/Person'
-// exercise 2.10
+import React, { useState , useEffect } from 'react'
+/* exercise 2.8 */
+/* import Person from './components/Person' */
+/* exercise 2.10 */
 import Filter from './components/Filter'
 import PersonForm from './components/PersonForm'
 import Phonebook from './components/Phonebook'
+/* exercise 2.11 */
 import axios from 'axios'
 
 const App = () => {
@@ -32,15 +33,23 @@ const App = () => {
   /* exercise 2.9* */
   const [ filter, setFilter ] = useState('')
   
-  /* exercise 2.11 */
+  /* exercise 2.11(i) */
   axios.get('http://localhost:3002/persons').then(
     response => {
-      const persons = response.data
       ReactDOM.render(
-        <App persons = {persons}/>, document.getElementById('root')
+        <App persons = {response.data}/>, document.getElementById('root')
       )
     }
   )
+
+  /* exercise 2.11(ii) */
+  useEffect(() => {
+    console.log('effect')
+    axios.get('http://localhost:3002/persons').then(response => {
+      console.log('promise fulfilled')
+      setPersons(response.data)
+    })
+  }, [])
 
   /* exercise 2.6 */
   const addNewName = (event) => {
