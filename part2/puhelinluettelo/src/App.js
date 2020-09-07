@@ -5,6 +5,7 @@ import React, { useState } from 'react'
 import Filter from './components/Filter'
 import PersonForm from './components/PersonForm'
 import Phonebook from './components/Phonebook'
+import axios from 'axios'
 
 const App = () => {
   // exercises 2.6 and 2.7
@@ -12,7 +13,7 @@ const App = () => {
   //   { name: `Arto Hellas` }
   // ])
   // exercise 2.8
-  const [ persons, setPersons ] = useState([
+  /* const [ persons, setPersons ] = useState([
     { id: 1, name: `Arto Hellas`, number: '040-1234567'},
     // exercise 2.9*
     { id: 2, name: `Ada Lovelace`, number: `39-44-5323523`},
@@ -22,14 +23,26 @@ const App = () => {
     { id: 5, name: `Martti Tienari`, number: `+358-457-555-1868`},
     { id: 6, name: `Arto Järvinen`, number: `+358-500-555-8863`},
     { id: 7, name: `Lea Kutvonen`, number: `+358-505-556-2280`},
-  ])
+  ]) */
+  /* exercise 2.11 */
+  const [ persons, setPersons ] = useState([])
   const [ newName, setNewName ] = useState('')
-  // exercise 2.8
+  /* exercise 2.8 */
   const [ newNumber, setNewNumber ] = useState('')
-  // exercise 2.9*
+  /* exercise 2.9* */
   const [ filter, setFilter ] = useState('')
   
-  // exercise 2.6
+  /* exercise 2.11 */
+  axios.get('http://localhost:3002/persons').then(
+    response => {
+      const persons = response.data
+      ReactDOM.render(
+        <App persons = {persons}/>, document.getElementById('root')
+      )
+    }
+  )
+
+  /* exercise 2.6 */
   const addNewName = (event) => {
     // prevent default action of submitting HTML forms
     event.preventDefault()
@@ -53,24 +66,24 @@ const App = () => {
     }
   }
 
-  // exercise 2.6
+  /* exercise 2.6 */
   const handleNewName = (event) => {
     console.log(event.target.value)
     setNewName(event.target.value)
   }
 
-  // exercise 2.8
+  /* exercise 2.8 */
   const handleNewNumber = (event) => {
     console.log(event.target.value)
     setNewNumber(event.target.value)
   }
 
-  // exercise 2.9* – filter handler
+  /* exercise 2.9* – filter handler */
   const handleFilter = (event) => {
     console.log(event.target.value)
     setFilter(event.target.value)
   }
-  // exercise 2.9* – results definition: check filter input against names already in phonebook
+  /* exercise 2.9* – results definition: check filter input against names already in phonebook */
   const results = !filter ? persons : persons.filter(person => person.name.toLowerCase().includes(filter.toLowerCase()))
 
   return (
